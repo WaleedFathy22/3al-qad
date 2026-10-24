@@ -1,0 +1,8 @@
+.tabs-bar { position: sticky; top: var(--nav-h); z-index: 1020; background: #0f1b3def; backdrop-filter: blur(6px); }
+.nav { scrollbar-width: none; --bs-nav-pills-link-active-bg: var(--pink); --bs-nav-link-color: #fff; --bs-nav-link-hover-color: var(--pink); }
+.nav-link { border: 1px solid #ffffff33; }
+.nav-link.active { border-color: var(--pink); }
+.img { aspect-ratio: 3 / 2; background: #16275a; overflow: hidden; }
+.img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.card:hover .img img { transform: scale(1.08); }
+.en { direction: ltr; text-align: right; }

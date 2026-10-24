@@ -1,0 +1,25 @@
+:root { --bg: #0f1b3d; --card: #1b2a52; --pink: #ff4d79; --cyan: #7ee8ff; --nav-h: 64px;
+  --bs-body-bg: #0f1b3d; --bs-body-font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif; --bs-link-color-rgb: 255, 77, 121; }
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+body::selection { background: var(--pink); color: #fff; }
+section[id] { scroll-margin-top: var(--nav-h); }
+.card { --bs-card-bg: var(--card); --bs-card-border-color: transparent; }
+.text-pink { color: var(--pink) !important; }
+.text-cyan { color: var(--cyan) !important; }
+.btn-brand { --bs-btn-color: #fff; --bs-btn-bg: var(--pink); --bs-btn-border-color: var(--pink);
+  --bs-btn-hover-color: #fff; --bs-btn-hover-bg: #e63e69; --bs-btn-hover-border-color: #e63e69;
+  --bs-btn-active-bg: #d93660; --bs-btn-active-border-color: #d93660; }
+.section-title { color: var(--pink); font-weight: 700; }
+
+/* أنيميشن الظهور (RevealDirective) */
+.reveal { opacity: 0; transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1); will-change: opacity, transform; }
+.reveal[data-reveal='up'] { transform: translateY(44px); }
+.reveal[data-reveal='left'] { transform: translateX(-60px); }
+.reveal[data-reveal='right'] { transform: translateX(60px); }
+.reveal[data-reveal='zoom'] { transform: scale(.88); }
+.reveal.revealed { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

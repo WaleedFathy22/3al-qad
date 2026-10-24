@@ -1,0 +1,115 @@
+.hero {
+    min-height: 100vh;
+    background-image: url('/assets/images/2.png');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+.cover {
+    position: absolute;
+    inset: 0;
+    animation: kenburns 18s ease-in-out infinite alternate;
+}
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #0f1b3dcc 0%, #0f1b3d99 45%, #0f1b3d 100%);
+}
+.content {
+    position: relative;
+    z-index: 2;
+    padding-top: 90px;
+    max-width: 760px;
+}
+h1 {
+    text-shadow: 0 0 30px #ff4d79aa;
+    font-size: clamp(4rem, 14vw, 8.5rem);
+}
+.lead {
+    max-width: 520px;
+    color: #e3e9ff;
+}
+.anim {
+    opacity: 0;
+    animation: fadeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s) forwards;
+}
+.float {
+    position: absolute;
+    z-index: 1;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    opacity: 0.85;
+    animation: float 5s ease-in-out infinite;
+    filter: drop-shadow(0 6px 10px #0008);
+}
+.f1 {
+    top: 22%;
+    right: 10%;
+}
+.f2 {
+    top: 75%;
+    right: 18%;
+    animation-delay: -1.5s;
+}
+.f3 {
+    top: 28%;
+    left: 12%;
+    animation-delay: -3s;
+}
+.f4 {
+    top: 75%;
+    left: 10%;
+    animation-delay: -2s;
+}
+.hint {
+    position: absolute;
+    bottom: 22px;
+    z-index: 2;
+    animation: bounce 1.6s infinite;
+}
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+@keyframes kenburns {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.14);
+    }
+}
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-6deg);
+    }
+    50% {
+        transform: translateY(-18px) rotate(6deg);
+    }
+}
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .cover,
+    .float,
+    .hint {
+        animation: none;
+    }
+    .anim {
+        animation: none;
+        opacity: 1;
+    }
+}

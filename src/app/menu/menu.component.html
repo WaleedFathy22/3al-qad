@@ -1,0 +1,65 @@
+<section id="category" class="menu pt-5">
+  <div class="text-center mb-3" appReveal>
+    <h2 class="section-title display-5"><i class="fa-solid fa-burger ms-2"></i>المنيو</h2>
+    <p class="text-secondary mb-0">اختار القسم اللي يعجبك</p>
+  </div>
+
+  <div class="tabs-bar py-2">
+    <div class="container">
+      <ul class="nav nav-pills flex-nowrap overflow-auto pb-1">
+        @for (c of service.categories; track c.key) {
+          <li class="nav-item flex-shrink-0 ms-2">
+            <button type="button" class="nav-link rounded-pill" [class.active]="service.selected() === c.key" (click)="service.selected.set(c.key)">
+              {{ c.label }}
+            </button>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="container py-4">
+    <div class="row g-4">
+      @for (m of service.filteredMeals(); track m.id; let i = $index) {
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3" appReveal [revealDelay]="(i % 4) * 90">
+          <div class="card h-100 shadow overflow-hidden">
+            <div class="img position-relative">
+              <img class="card-img-top" [src]="m.image" [alt]="m.name" loading="lazy" (error)="onImgError($event)" />
+              @if (m.featured) { <span class="badge bg-dark bg-opacity-75 position-absolute top-0 end-0 m-2"><i class="fa-solid fa-star text-warning"></i> مميز</span> }
+              @if (m.spicy) { <span class="badge bg-danger position-absolute top-0 start-0 m-2"><i class="fa-solid fa-pepper-hot"></i> حار</span> }
+            </div>
+            <div class="card-body d-flex flex-column gap-1">
+              <h5 class="card-title mb-0">{{ m.name }}</h5>
+              @if (m.nameEn) { <small class="text-cyan en">{{ m.nameEn }}</small> }
+              @if (m.description) { <p class="card-text small text-secondary-emphasis mb-1">{{ m.description }}</p> }
+              @if (m.spiceOption) { <small class="text-warning"><i class="fa-solid fa-pepper-hot"></i> حار أو عادي</small> }
+              <div class="d-flex flex-wrap justify-content-center gap-2 mt-auto pt-2">
+                @for (p of m.prices; track p.label) {
+                  <span class="badge text-bg-danger fs-6 fw-bold"><small class="fw-normal">{{ p.label }}</small> {{ p.price }} ج.م</span>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    @if (service.showAddons()) {
+      <h3 class="section-title text-center mt-5 mb-3" appReveal><i class="fa-solid fa-plus ms-2"></i>الإضافات</h3>
+      <div class="row justify-content-center g-3">
+        @for (g of service.addonGroups(); track g.group; let i = $index) {
+          <div class="col-12 col-md-6 col-lg-3" appReveal="zoom" [revealDelay]="i * 120">
+            <div class="card h-100">
+              <div class="card-header bg-transparent text-cyan fw-bold">{{ g.group }}</div>
+              <ul class="list-group list-group-flush">
+                @for (a of g.items; track a.name) {
+                  <li class="list-group-item bg-transparent d-flex justify-content-between"><span>{{ a.name }}</span><b>{{ a.price }}</b></li>
+                }
+              </ul>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<footer class="footer pt-5 pb-3">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-3" appReveal>
+        <h3 class="text-pink fw-bold"><i class="fa-solid fa-utensils ms-2"></i>{{ info.name }}</h3>
+        <p class="text-secondary">{{ info.tagline }}</p>
+      </div>
+      <div class="col-6 col-lg-3" appReveal [revealDelay]="120">
+        <h5 class="text-cyan">روابط سريعة</h5>
+        <ul class="list-unstyled mb-0">
+          @for (l of links; track l.id) { <li class="mb-1"><a class="link-light link-opacity-75-hover text-decoration-none" [href]="'#' + l.id"><i class="fa-solid fa-angle-left ms-1 small"></i>{{ l.label }}</a></li> }
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3" appReveal [revealDelay]="240">
+        <h5 class="text-cyan">تواصل معنا</h5>
+        <ul class="list-unstyled mb-0">
+          @for (p of info.phones; track p) { <li class="mb-1"><a class="link-light text-decoration-none" [href]="'tel:' + p" dir="ltr"><i class="fa-solid fa-phone ms-2"></i>{{ p }}</a></li> }
+        </ul>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3" appReveal [revealDelay]="360">
+        <h5 class="text-cyan">الفروع</h5>
+        <ul class="list-unstyled mb-0">
+          @for (b of info.branches; track b) { <li class="mb-1 small"><i class="fa-solid fa-location-dot text-pink ms-2"></i>{{ b }}</li> }
+        </ul>
+      </div>
+    </div>
+    <hr class="border-secondary mt-4" />
+    <p class="text-center text-secondary small mb-0">© {{ year }} {{ info.name }} - جميع الحقوق محفوظة</p>
+  </div>
+</footer>

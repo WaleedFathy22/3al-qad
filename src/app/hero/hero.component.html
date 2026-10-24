@@ -1,0 +1,19 @@
+<section id="home" class="hero d-flex align-items-center justify-content-center text-center position-relative overflow-hidden">
+  <div class="cover" [style.background-image]="'url(' + cover + ')'"></div>
+  <div class="overlay"></div>
+  <i class="fa-solid fa-burger float f1 text-pink"></i>
+  <i class="fa-solid fa-drumstick-bite float f2 text-warning"></i>
+  <i class="fa-solid fa-pepper-hot float f3 text-danger"></i>
+  <i class="fa-solid fa-bowl-rice float f4 text-cyan"></i>
+
+  <div class="content container">
+    <p class="fs-4 text-cyan mb-0 anim" style="--d: .1s">{{ tagline }}</p>
+    <h1 class="display-1 fw-bold text-pink anim" style="--d: .3s">{{ name }}</h1>
+    <p class="lead mx-auto mb-4 anim" style="--d: .5s">برجر، فرايد تشيكن، فرنساوي وبروست... كله ع القد</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap anim" style="--d: .7s">
+      <a class="btn btn-brand btn-lg rounded-pill px-4" href="#category"><i class="fa-solid fa-utensils ms-2"></i>شوف المنيو</a>
+      <a class="btn btn-outline-light btn-lg rounded-pill px-4" [href]="wa" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp ms-2"></i>اطلب واتساب</a>
+    </div>
+  </div>
+  <a class="hint text-white fs-3" href="#category" aria-label="انزل للمنيو"><i class="fa-solid fa-arrow-down"></i></a>
+</section>

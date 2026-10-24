@@ -1,0 +1,28 @@
+<section id="about" class="about py-5">
+  <div class="container">
+    <div class="row align-items-center g-4 mb-5">
+      <div class="col-lg-6" appReveal="right">
+        <h2 class="section-title display-5">من نحن</h2>
+        <p class="lead text-cyan">ع القد... ملوك الفرنساوي</p>
+        <p class="text-secondary-emphasis lh-lg">
+          بنقدملك أكل سريع على أصوله: برجر، فرايد تشيكن، فرنساوي، بطاطس، ريزو ووجبات بروست واستربس،
+          وبنوصّل لحد عندك.
+        </p>
+      </div>
+      <div class="col-lg-6" appReveal="left">
+        <img class="img-fluid rounded-4 shadow-lg w-100" [src]="image" alt="المطعم" loading="lazy" />
+      </div>
+    </div>
+    <div class="row g-3">
+      @for (f of features; track f.title; let i = $index) {
+        <div class="col-6 col-lg-3" appReveal="zoom" [revealDelay]="i * 120">
+          <div class="card feature h-100 d-flex justify-content-center align-items-center p-3">
+            <i class="fa-solid fs-1 text-pink mb-2" [class]="f.icon"></i>
+            <h5 class="text-cyan">{{ f.title }}</h5>
+            <p class="small text-secondary-emphasis mb-0">{{ f.text }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

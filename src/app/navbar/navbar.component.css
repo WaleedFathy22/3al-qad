@@ -1,0 +1,7 @@
+.navbar { min-height: var(--nav-h); transition: background .3s, box-shadow .3s; }
+.navbar.scrolled { background: #0f1b3df2; backdrop-filter: blur(8px); box-shadow: 0 4px 20px #0006; }
+.nav-link { position: relative; color: #fff; transition: color .2s; }
+.nav-link::after { content: ''; position: absolute; inset-inline: 16px; bottom: 2px; height: 2px; background: var(--pink); transform: scaleX(0); transition: transform .25s; }
+.nav-link:hover, .nav-link.active { color: var(--pink); }
+.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+@media (max-width: 767.98px) { .nav-link::after { display: none; } }

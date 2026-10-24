@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-md fixed-top" [class.scrolled]="scrolled() || open()">
+  <div class="container">
+    <a class="navbar-brand fw-bold fs-3 text-pink" href="#home" (click)="open.set(false)">
+      <i class="fa-solid pe-2 fa-utensils ms-2"></i>{{ name }}
+    </a>
+    <button class="navbar-toggler border-0" type="button" aria-label="القائمة" (click)="open.set(!open())">
+      <i class="fa-solid fs-4" [class.fa-bars]="!open()" [class.fa-xmark]="open()"></i>
+    </button>
+    <div class="collapse navbar-collapse" [class.show]="open()">
+      <ul class="navbar-nav ms-auto">
+        @for (l of links; track l.id) {
+          <li class="nav-item">
+            <a class="nav-link px-3" [href]="'#' + l.id" [class.active]="active() === l.id" (click)="open.set(false)">
+              {{ l.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

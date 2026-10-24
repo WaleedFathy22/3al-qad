@@ -6,7 +6,7 @@
 
   <div class="tabs-bar py-2">
     <div class="container">
-      <ul class="nav nav-pills flex-nowrap overflow-auto pb-1">
+      <ul class="nav nav-pills flex-nowrap overflow-hidden pb-1">
         @for (c of service.categories; track c.key) {
           <li class="nav-item flex-shrink-0 ms-2">
             <button type="button" class="nav-link rounded-pill" [class.active]="service.selected() === c.key" (click)="service.selected.set(c.key)">

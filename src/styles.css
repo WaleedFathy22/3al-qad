@@ -2,7 +2,7 @@
   --bs-body-bg: #0f1b3d; --bs-body-font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif; --bs-link-color-rgb: 255, 77, 121; }
 html { scroll-behavior: smooth; }
 html, body { overflow-x: clip; }
-body::selection { background: var(--pink); color: #fff; }
+body::selection { background: var(--pink); color: #fff; overflow: hidden; }
 section[id] { scroll-margin-top: var(--nav-h); }
 .card { --bs-card-bg: var(--card); --bs-card-border-color: transparent; }
 .text-pink { color: var(--pink) !important; }

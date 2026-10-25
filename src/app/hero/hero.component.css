@@ -1,5 +1,6 @@
 .hero {
     min-height: 100vh;
+    min-height: 100svh;
     background-image: url('/assets/images/2.png');
     background-size: cover;
     background-position: top center;
@@ -111,5 +112,17 @@ h1 {
     .anim {
         animation: none;
         opacity: 1;
+    }
+}
+@media (max-width: 575.98px) {
+    .float {
+        font-size: 2rem;
+        opacity: 0.3;
+    }
+    .f2 {
+        right: 6%;
+    }
+    .f4 {
+        left: 6%;
     }
 }

@@ -1,7 +1,7 @@
 :root { --bg: #0f1b3d; --card: #1b2a52; --pink: #ff4d79; --cyan: #7ee8ff; --nav-h: 64px;
   --bs-body-bg: #0f1b3d; --bs-body-font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif; --bs-link-color-rgb: 255, 77, 121; }
 html { scroll-behavior: smooth; }
-body { overflow-x: hidden; }
+html, body { overflow-x: clip; }
 body::selection { background: var(--pink); color: #fff; }
 section[id] { scroll-margin-top: var(--nav-h); }
 .card { --bs-card-bg: var(--card); --bs-card-border-color: transparent; }
@@ -15,10 +15,13 @@ section[id] { scroll-margin-top: var(--nav-h); }
 /* أنيميشن الظهور (RevealDirective) */
 .reveal { opacity: 0; transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1); will-change: opacity, transform; }
 .reveal[data-reveal='up'] { transform: translateY(44px); }
-.reveal[data-reveal='left'] { transform: translateX(-60px); }
-.reveal[data-reveal='right'] { transform: translateX(60px); }
+.reveal[data-reveal='left'] { transform: translateX(-32px); }
+.reveal[data-reveal='right'] { transform: translateX(32px); }
 .reveal[data-reveal='zoom'] { transform: scale(.88); }
 .reveal.revealed { opacity: 1; transform: none; }
+@media (max-width: 767.98px) {
+  .reveal[data-reveal='left'], .reveal[data-reveal='right'] { transform: translateY(40px); }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }

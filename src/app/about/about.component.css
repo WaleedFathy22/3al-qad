@@ -1,4 +1,4 @@
-.about { background: #13224a; }
+.about { overflow-x: hidden; background: #13224a; }
 img { aspect-ratio: 4 / 3; object-fit: cover; }
 .feature { transition: transform .25s; }
 .feature:hover { transform: translateY(-6px); }
